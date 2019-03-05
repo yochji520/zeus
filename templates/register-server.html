@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% include  'head.html' %}
+    <body>
+        {% include 'nav.html' %}
+        <div class="main-container" id="main-container">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('main-container', 'fixed')
+                } catch(e) {}
+            </script>
+            <div class="main-container-inner">
+                <a class="menu-toggler" id="menu-toggler" href="#">
+                    <span class="menu-text">
+                    </span>
+                </a>
+                <div class="sidebar" id="sidebar">
+                    <script type="text/javascript">
+                        try {
+                            ace.settings.check('sidebar', 'fixed')
+                        } catch(e) {}
+                    </script>
+                    <ul class="nav nav-list">
+                        <li class="active">
+                            <a href=" /">
+                                <i class="icon-dashboard">
+                                </i>
+                                <span class="menu-text">
+                                    仪表盘
+                                </span>
+                            </a>
+                        </li>
+                        <li class="active open">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-edit">
+                                </i>
+                                <span class="menu-text">
+                                    服务
+                                </span>
+                                <b class="arrow icon-angle-down">
+                                </b>
+                            </a>
+                            <ul class="submenu">
+                                <li class="active">
+                                    <a href="/servermanage/servermanage/">
+                                        <i class="icon-double-angle-right">
+                                        </i>
+                                        服务注册
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/servermanage/serverlist/">
+                                        <i class="icon-double-angle-right">
+                                        </i>
+                                        服务列表
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="active open">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="icon-edit">
+                                </i>
+                                <span class="menu-text">
+                                    脚本管理
+                                </span>
+                                <b class="arrow icon-angle-down">
+                                </b>
+                            </a>
+                            <ul class="submenu">
+                                <li class="active">
+                                    <a href="/scriptmanage/scriptmanage/">
+                                        <i class="icon-double-angle-right">
+                                        </i>
+                                        添加脚本
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/scriptmanage/scriptlist/">
+                                        <i class="icon-double-angle-right">
+                                        </i>
+                                        脚本列表
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <!-- /.nav-list -->
+                    <div class="sidebar-collapse" id="sidebar-collapse">
+                        <i class="icon-double-angle-left" data-icon1="icon-double-angle-left"
+                        data-icon2="icon-double-angle-right">
+                        </i>
+                    </div>
+                    <script type="text/javascript">
+                        try {
+                            ace.settings.check('sidebar', 'collapsed')
+                        } catch(e) {}
+                    </script>
+                </div>
+                <div class="main-content">
+                    <div class="breadcrumbs" id="breadcrumbs">
+                        <script type="text/javascript">
+                            try {
+                                ace.settings.check('breadcrumbs', 'fixed')
+                            } catch(e) {}
+                        </script>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home home-icon">
+                                </i>
+                                <a href="#">
+                                    服务
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    服务注册
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- .breadcrumb -->
+                    </div>
+                    <div class="page-content">
+                        <div class="page-header">
+                            <!--消息框-->
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <form  class="form-horizontal" id="registerfrom" role="form"  method="POST" name="registerserver">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            业务名
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="pojo" class="col-xs-10 col-sm-5" name="pojoname"/>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            库名
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="dbname"  placeholder="[db1,db2,db3]" class="col-xs-10 col-sm-5" name="dbname"/>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            主机地址
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="ipaddr"  class="col-xs-10 col-sm-5" name="hostaddrss"/>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            端口
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input type="text" id="port"  class="col-xs-10 col-sm-5" name="port"/>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            服务类型
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <input name="server_type" type="radio" class="ace" value="MySQL">
+                                            <span class="lbl">
+                                                MySQL
+                                            </span>
+                                            <span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </span>
+                                            <input name="server_type" type="radio" class="ace" value="Redis">
+                                            <span class="lbl">
+                                                Redis
+                                            </span>
+                                            <span>
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            </span>
+                                            <input name="server_type" type="radio" class="ace" value="MongoDB">
+                                            <span class="lbl">
+                                                MongoDB
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            部署类型
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <label>
+                                                <input name="build_type" type="radio" class="ace" value="阿里云服务">
+                                                <span class="lbl">
+                                                    阿里云服务
+                                                </span>
+                                                <span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <input name="build_type" type="radio" class="ace" value="自建服务">
+                                                <span class="lbl">
+                                                    自建服务
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            角色类型
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <label>
+                                                <input name="role_type" type="radio" class="ace" value="主库">
+                                                <span class="lbl">
+                                                    主库
+                                                </span>
+                                                <span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <input name="role_type" type="radio" class="ace" value="从库">
+                                                <span class="lbl">
+                                                    从库
+                                                </span>
+                                                <span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <input name="role_type" type="radio" class="ace" value="集群">
+                                                <span class="lbl">
+                                                    集群
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-1">
+                                            环境类型
+                                        </label>
+                                        <div class="col-sm-9">
+                                            <label>
+                                                <input name="env_type" type="radio" class="ace" value="测试环境">
+                                                <span class="lbl">
+                                                    测试环境
+                                                </span>
+                                                <span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <input name="env_type" type="radio" class="ace" value="预发布环境">
+                                                <span class="lbl">
+                                                    预发布环境
+                                                </span>
+                                                <span>
+                                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </span>
+                                                <input name="env_type" type="radio" class="ace" value="生产环境">
+                                                <span class="lbl">
+                                                    生产环境
+                                                </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="space-4">
+                                    </div>
+                                    <div class="clearfix form-actions">
+                                        <div class="col-md-offset-3 col-md-9">
+                                            <input class="btn btn-info" type=button name="subregisterserver" value="注册" onclick="register()">
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                            <input class="btn btn-info" type=reset name="subregisterserver" value="重置">
+                                        </div>
+                                    </div>
+                                    <div class="space-24">
+                                    </div>
+                                </form>
+                                <div class="hr hr-18 dotted hr-double">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            function register(form) {
+                    $.ajax({
+                    //几个参数需要注意一下
+                    type: "POST",//方法类型
+                    dataType: "json",//预期服务器返回的数据类型
+                    url: "/servermanage/servermanage/" ,
+                    data: $('#registerfrom').serialize(),
+                    success: function (data) {
+                        console.log(data);//打印服务端返回的数据(调试用)
+                        if ( data["result"]  == 200) {
+                            alert("服务注册成功!!!");
+                        }
+                        ;
+                    },
+                    error : function() {
+                        alert("服务注册失败!!!");
+                    }
+                });
+            }
+        </script>
+        <script>
+            function check(form) {
+                if(form.dbname.value=='') {
+                  alert("请输入数据库信息!");
+                  form.userId.focus();
+                  return false;
+                }
+               if(form.port.value=='') {
+                    alert("请输入数据库端口!");
+                    form.userId.focus();
+                    return false;
+               }
+               if(form.pojoname.value=='') {
+                    alert("请输入项目名称!");
+                    form.userId.focus();
+                    return false;
+               }
+               if(form.hostaddrss.value=='') {
+                    alert("请输入数据库地址!");
+                    form.userId.focus();
+                    return false;
+               }
+                return true;
+         }
+        </script>
+        {% include 'static_js.html' %}
+    </body>
+</html>

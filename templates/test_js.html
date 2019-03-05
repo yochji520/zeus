@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习JS</title>
+    <script>
+        function displayDate(){
+            document.getElementById("demo").innerHTML=Date();
+        }
+        //将boby的<h1>标签的内容替换掉
+        //document.write("<h1>西班牙</h1>")
+        <!--通过js改变html<p id="xxx">的内容-->
+        function myfcun(){
+            xxx = document.getElementById("xxx");
+            xxx.innerHTML="我是倔强的Python代码！！！";
+        }
+        //改变css的样式
+        function funcss() {
+            x=document.getElementById("cssid"); // 找到元素
+	        x.style.color="#ff0000";          // 改变样式
+
+    </script>
+</head>
+
+        <!--<h1>JS</h1>-->
+        <!--<p>
+            JavaScript 能够对事件作出反应。比如对按钮的点击：
+        </p>
+        <button type="button" onclick="alert('欢迎!')">点我!</button><!--onclick="alert('欢迎!'),alert() 函数在 JavaScript 中并不常用，但它对于代码测试非常方便。弹出欢迎框-->
+        <!--<p id="demo"></p>
+        <button type="button" onclick="displayDate()">显示日期</button>-->
+        <!--<p id="xxx">我是倔强的JS代码！！！</p>
+        <button type="button" onclick="myfcun()">click me</button>-->
+        <!--<p id="cssid">
+        JavaScript 能改变 HTML 元素的样式。
+        </p>
+        <button type="button" onclick="funcss()">点击这里</button>-->
+        <!--
+        <h1>我的第二段 JavaScript</h1>
+        <p>请输入数字。如果输入值不是数字，浏览器会弹出提示框。输入验证</p>
+        <input id="demo" type="text">
+        <script>
+        function myFunction()
+        {
+            var x=document.getElementById("demo").value;
+            if(x==""||isNaN(x))
+            {
+                alert("不是数字");
+                s = document.getElementById("xxx");
+                s.innerHTML="请重新输入";
+            }
+        }
+        </script>
+        <button type="button" onclick="myFunction()">点击这里</button>
+        <span id="xxx"></span>-->
+
+        <!--JavaScript 显示数据
+            JavaScript 可以通过不同的方式来输出数据：
+            使用 window.alert() 弹出警告框。
+            使用 document.write() 方法将内容写到 HTML 文档中。
+            使用 innerHTML 写入到 HTML 元素。
+            使用 console.log() 写入到浏览器的控制台。-->
+        <!--弹出警告框--><!--<script>window.alert(5 + 6)</script>-->
+        <!--操作 HTML 元素-->
+
+        <!---------------------------js输出--------------------------->
+        <h1>我的第一个 Web 页面</h1>
+        <p id="demo">我的第一个段落</p>
+        <script>
+        document.getElementById("demo").innerHTML = "段落已修改。";
+        </script>
+        <!--写到 HTML 文档-->
+        <h1>我的第二个 Web 页面</h1>
+        <p>我的第二个段落。</p>
+        <button type="button" onclick="myfcun1()">点击我</button>
+        <script>
+            function myfcun1(){
+                document.write(Date());
+            }
+        </script>
+
+
+      <h1>我的第一个 Web 页面</h1>
+        <p>
+        浏览器中(Chrome, IE, Firefox) 使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单。
+        </p>
+        <script>
+        a = 5;
+        b = 6;
+        c = a + b;
+        console.log(c);
+        </script>
+        <!-------------------------------------------------------------->
+
+        <p id="dev"></p>
+        <script>
+        var x, y, z;
+        x = 5;
+        y = 6;
+        z = (x + y) * 10;
+        document.getElementById("dev").innerHTML = z;
+        </script>
+        <!-------------------------------------------------------------->
+
+</body>
+</html>
+
+
+
+</body>
+</html>
+
+
+<!--获取id=demo这个元素，当点击日期，就显示数据document.getElementById("demo").innerHTML=Date();-->
+
